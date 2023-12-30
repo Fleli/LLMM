@@ -27,6 +27,10 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 # Run the program
 run: $(TARGET)
 	./$(TARGET)
+	
+check:
+	$(TARGET)
+	leaks -atExit -- ./build/a.out
 
 # Clean
 clean:
