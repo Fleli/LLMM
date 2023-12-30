@@ -1,5 +1,9 @@
 
-typedef struct Array_T {
+/* 
+An array holding pointers to elements. The array does not "own" the elements, so it
+won't deallocate the memory used by elements when being destroyed.
+*/
+typedef struct {
     
     int count;
     int length;
@@ -19,8 +23,6 @@ void array_append(Array *a, void *newElement);
 
 /*
 Insert a new element at a certain index. 
-Maintained invariant: .count < .length, always.
-The insert method automatically adjusts the array size after insertion if this invariant fails.
 */
 void array_insert(Array *a, void *newElement, int index);
 

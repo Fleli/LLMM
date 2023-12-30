@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
+int main()
 {
     
     Array *a = array_init();
@@ -24,4 +24,5 @@ int main(int argc, char const *argv[])
     printf("v = %d\n", v);
     
     return 0;
+    
 }

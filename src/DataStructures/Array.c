@@ -25,6 +25,8 @@ Array *array_init_with_initial_capacity(int initialCapacity) {
     
 }
 
+// Maintained invariant: .count < .length, always.
+// The insert method automatically adjusts the array size after insertion if this invariant fails.
 void array_insert(Array *a, void *newElement, int index) {
     
     if (index < 0 || index > a->count) {
