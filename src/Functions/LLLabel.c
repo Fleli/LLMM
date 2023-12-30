@@ -14,3 +14,7 @@ LLLabel *ll_label_init(char *name) {
     return label;
     
 }
+
+void ll_label_add_statement(LLLabel *label, LLStatement *stmt) {
+    array_append(label->statements, stmt);
+}

@@ -1,2 +1,4 @@
 
-// #define DEBUG
+#pragma once
+
+#define DEBUG

@@ -17,3 +17,6 @@ Assumes that this new parameter will get ownership of `name` and `type`.
 Will not make copies of these.
 */
 LLParameter *ll_parameter_init(char *name, LLType *type);
+
+/* Destroy an LLParameter instance. */
+void ll_parameter_destroy(LLParameter *parameter);

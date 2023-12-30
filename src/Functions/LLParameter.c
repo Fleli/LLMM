@@ -14,3 +14,14 @@ LLParameter *ll_parameter_init(char *name, LLType *type) {
     return llp;
     
 }
+
+void ll_parameter_destroy(LLParameter *parameter) {
+    
+    // Free the name string and the type.
+    free(parameter->name);
+    ll_type_destroy(parameter->type);
+    
+    // Then, free the parameter instance itself.
+    free(parameter);
+    
+}
