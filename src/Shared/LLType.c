@@ -60,7 +60,7 @@ char *ll_type_description(LLType *t) {
         default:
             printf("Unrecognized LLType case %d.\n", t->typeCase);
             exit(1);
-            
+        
     }
     
 }
