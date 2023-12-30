@@ -21,3 +21,16 @@ LLLabel *ll_label_init(char *name) {
 void ll_label_add_statement(LLLabel *label, LLStmt *stmt) {
     array_append(label->statements, stmt);
 }
+
+void ll_label_destroy(LLLabel *label) {
+    
+    // Free the label's name string.
+    free(label->name);
+    
+    // Free the label's array of statements.
+    array_destroy_with_ownership(label->statements, (destructor) ll_stmt_destroy);
+    
+    // Free the label itself.
+    free(label);
+    
+}

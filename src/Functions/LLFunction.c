@@ -25,3 +25,17 @@ void ll_function_add_parameter(LLFunction *func, LLParameter *param) {
 void ll_function_add_label(LLFunction *func, LLLabel *label) {
     array_append(func->labels, label);
 }
+
+void ll_function_destroy(LLFunction *func) {
+    
+    // Free the string holding the function's name.
+    free(func->name);
+    
+    // Free parameters and labels
+    array_destroy_with_ownership(func->parameters, (destructor) ll_parameter_destroy);
+    array_destroy_with_ownership(func->labels, (destructor) ll_label_destroy);
+    
+    // Free the function itself
+    free(func);
+    
+}

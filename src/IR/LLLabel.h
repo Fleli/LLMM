@@ -18,3 +18,6 @@ LLLabel *ll_label_init(char *name);
 
 /* Append a statement to a label. */
 void ll_label_add_statement(LLLabel *label, LLStmt *stmt);
+
+/* Destroy a label and all statements contained in it. */
+void ll_label_destroy(LLLabel *label);

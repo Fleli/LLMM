@@ -83,3 +83,16 @@ void array_destroy(Array *a) {
     free(a->data);
     free(a);
 }
+
+void array_destroy_with_ownership(Array *a, void (*destructor_function)(void *element)) {
+    
+    int count = array_count(a);
+    
+    for (int i = 0; i < count; i++) {
+        void *element = array_get(a, i);
+        destructor_function(element);
+    }
+    
+    array_destroy(a);
+    
+}

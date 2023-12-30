@@ -25,3 +25,6 @@ void ll_function_add_parameter(LLFunction *func, LLParameter *param);
 
 /* Add a new label to a function. */
 void ll_function_add_label(LLFunction *func, LLLabel *label);
+
+/* Destroy an LLFunction. */
+void ll_function_destroy(LLFunction *func);

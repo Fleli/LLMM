@@ -8,6 +8,8 @@ Functions, `LLFunction`, are the most important part of the IR. They contain the
 
 Function bodies are organized into _labels_, `LLLabel`. A label is a group of code with no branches, except at the end. In other words, a label represents a basic block.
 
+Labels contain an ordered list (`Array`) of statements (`LLStmt`). An example of a statement is `alloca` (`LLStmtAlloca`).
+
 ## Type Definitions
 
 The top level also contains type definitions. These are further explained in `01_Types.md`.

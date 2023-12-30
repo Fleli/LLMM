@@ -14,6 +14,9 @@ typedef struct {
     
 } Array;
 
+/* Destructors are `void` functions that take a pointer to the object they are destroying. */
+#define destructor void (*) (void*)
+
 /* Initialize an array and return a pointer to it. */
 Array* array_init(void);
 
@@ -36,6 +39,12 @@ int array_count(Array *a);
 
 /* 
 Destroy the array and free the memory it uses.
-Since arrays don't take ownership of elements, each element should be destroyed externally first.
+Since arrays don't necessarily take ownership of elements, each element should be destroyed externally first.
 */
 void array_destroy(Array *a);
+
+/*
+Destroy the array and free the memory it uses.
+Assume that the array has ownership of its elements, and pass a function to destroy each element.
+*/
+void array_destroy_with_ownership(Array *a, void (*destructor_function)(void *element));

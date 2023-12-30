@@ -11,4 +11,4 @@ I've decided these functions almost always have the following responsibilities:
 - Free the `instance` of `T` itself.
 
 There is an important exception to the first rule:
-- If the `T` instance does not have ownership of the data it refers to, it should not destroy it. This will be clearly stated in the Doxygen comments above the destructor functions. Arrays are important examples.
+- If the `T` instance does not have ownership of the data it refers to, it should not destroy it. This will be clearly stated in the Doxygen comments above the destructor functions. Arrays don't necessarily have ownership of their elements.
