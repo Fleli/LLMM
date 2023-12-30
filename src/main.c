@@ -4,16 +4,18 @@
 #include <string.h>
 
 #include "DataStructures/Array.h"
+
 #include "Functions/LLFunction.h"
+#include "Functions/LLType.h"
+#include "Functions/LLTypeCase.h"
+
 #include "Utils/Utils.h"
 
 int main() {
     
-    char *name = heap_string("function_name");
+    LLType *t = ll_type_init(ll_type_flt, NULL);
     
-    LLFunction *func = llFunction_init(name);
-    
-    printf("%s\n", func->name);
+    printf("Description: %s\n", ll_type_description(t));
     
     return 0;
     

@@ -13,6 +13,9 @@ typedef int LLTypeCase;
 /* The `i16` (16-bit integer) `LLType` case. */
 #define ll_type_i16 3
 
+/* The `i32` (32-bit integer) `LLType` case. */
+#define ll_type_i32 4
+
 /* The `float` (16-bit float) `LLType` case. */
 #define ll_type_flt 10
 
