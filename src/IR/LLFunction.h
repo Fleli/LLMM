@@ -17,7 +17,7 @@ typedef struct {
     
 } LLFunction;
 
-/* Initialize a new LLFunction object. */
+/* Initialize a new LLFunction object. Takes ownership of the `name` variable, so it must be heap-allocated. */
 LLFunction *ll_function_init(char* name);
 
 /* Add a new parameter to a function. */

@@ -1,30 +1,34 @@
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "DataStructures/Array.h"
-
 #include "IR/LLFunction.h"
+#include "IR/LLParameter.h"
 #include "IR/LLType.h"
-#include "IR/LLTypeCase.h"
 
 #include "Utils/Utils.h"
 
 int main() {
     
-    Array *a = array_init();
+    /*
+    char *funcName = heap_string("didMoveToView");
+    LLFunction *func = ll_function_init(funcName);
     
-    int *t1 = malloc(sizeof(int));
-    *t1 = 10;
+    char *paramName = heap_string("%%1");
+    LLType *type = ll_type_init(ll_type_i16, NULL);
+    LLParameter *param = ll_parameter_init(paramName, type);
     
-    int *t2 = malloc(sizeof(int));
-    *t2 = 20;
+    ll_function_add_parameter(func, param);
     
-    array_append(a, t1);
-    array_append(a, t2);
+    ll_function_destroy(func);
+    */
     
-    array_destroy_with_ownership(a, free);
+    char *a = heap_string("ABC");
+    char *b = heap_string("DEF");
+    
+    printf("%s\n", a);
+    printf("%s\n", b);
+    
+    char *c = string_concatenate(a, b);
+    
+    printf("%s\n", c);
     
     return 0;
     
