@@ -1,11 +1,11 @@
 
-#include "DataStructures/Array.h"
-#include "Functions/LLFunction.h"
-#include "Utils/Utils.h"
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+#include "DataStructures/Array.h"
+#include "Functions/LLFunction.h"
+#include "Utils/Utils.h"
 
 int main() {
     

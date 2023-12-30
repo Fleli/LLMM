@@ -1,10 +1,11 @@
 # Types
 
 LLMM provides a few of the most frequently used types built into the IR.
-- `bit`: A single bit.
-- `w8`: An 8-bit word.
-- `w16`: A 16-bit word.
-- `float`: A 32-bit floating-point number.
+- `i1`: A single bit.
+- `i8`: An 8-bit integer (signed).
+- `i16`: A 16-bit integer (signed).
+- `i32`: A 32-bit integer (signed).
+- `flt`: A 32-bit floating-point number.
 
 The IR also allows some derived types. For example, a pointer to a type `T` can be declared as `T*` for an arbitrary type `T`.
 
