@@ -1,8 +1,11 @@
 
 #include <stdlib.h>
 
-#include "LLLabel.h"
 #include "../DataStructures/Array.h"
+
+#include "LLLabel.h"
+
+#include "../Statements/LLStmt.h"
 
 LLLabel *ll_label_init(char *name) {
     
@@ -15,6 +18,6 @@ LLLabel *ll_label_init(char *name) {
     
 }
 
-void ll_label_add_statement(LLLabel *label, LLStatement *stmt) {
+void ll_label_add_statement(LLLabel *label, LLStmt *stmt) {
     array_append(label->statements, stmt);
 }

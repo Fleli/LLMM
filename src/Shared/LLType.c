@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "LLType.h"
 #include "../DataStructures/Array.h"
+
+#include "LLType.h"
 
 LLType *ll_type_init(LLTypeCase typeCase, void *associated) {
     

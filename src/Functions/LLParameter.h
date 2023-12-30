@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "LLType.h"
+#include "../Shared/LLType.h"
 
 /* An `LLParameter` represents a function parameter, including `name` and `type`. */
 typedef struct {

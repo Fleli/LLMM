@@ -1,8 +1,9 @@
 
 #include <stdlib.h>
 
+#include "../Shared/LLType.h"
+
 #include "LLParameter.h"
-#include "LLType.h"
 
 LLParameter *ll_parameter_init(char *name, LLType *type) {
     

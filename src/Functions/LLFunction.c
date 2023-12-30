@@ -1,10 +1,10 @@
 
 #include <stdlib.h>
 
+#include "../DataStructures/Array.h"
+
 #include "LLFunction.h"
 #include "LLParameter.h"
-
-#include "../DataStructures/Array.h"
 
 LLFunction *ll_function_init(char* name) {
     

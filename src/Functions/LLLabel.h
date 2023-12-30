@@ -3,7 +3,7 @@
 
 #include "../DataStructures/Array.h"
 
-#include "../Statements/LLStatement.h"
+#include "../Statements/LLStmt.h"
 
 /* A label is an ordered list of statements. Together, several labels make up a function. */
 typedef struct {
@@ -17,4 +17,4 @@ typedef struct {
 LLLabel *ll_label_init(char *name);
 
 /* Append a statement to a label. */
-void ll_label_add_statement(LLLabel *label, LLStatement *stmt);
+void ll_label_add_statement(LLLabel *label, LLStmt *stmt);

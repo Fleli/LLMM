@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "LLTypeCase.h"
 #include "../DataStructures/Array.h"
+
 #include "../Utils/Utils.h"
+
+#include "LLTypeCase.h"
 
 /* 
 An `LLType` is similar to a Swift enum. Its typeCase represents either a basic type, a pointer, or a struct.
