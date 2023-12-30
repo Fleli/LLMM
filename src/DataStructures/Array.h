@@ -24,5 +24,5 @@ The insert method automatically adjusts the array size after insertion if this i
 */
 void array_insert(Array *a, void *newElement, int index);
 
-/* Destroy an array and free the memory it uses. Will *NOT* destroy remaining elements. */
-void array_destroy(Array *a);
+/* Get the element at a certain index. */
+void* array_get(Array *a, int index);
