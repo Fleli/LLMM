@@ -74,3 +74,12 @@ void* array_get(Array *a, int index) {
     return (a->data)[index];
     
 }
+
+int array_count(Array *a) {
+    return a->count;
+}
+
+void array_destroy(Array *a) {
+    free(a->data);
+    free(a);
+}

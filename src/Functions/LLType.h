@@ -28,27 +28,11 @@ Won't make a copy of it.
  */
 LLType *ll_type_init(LLTypeCase typeCase, void *associated);
 
+/* Destroy an `LLType` instance and its associated value. */
+void ll_type_destroy(LLType *type);
+
 /*
 Returns a string describing the type.
 The string is allocated on the heap.
 */
-char *ll_type_description(LLType *t) {
-    
-    switch (t->typeCase) {
-        case ll_type_i1:
-            return heap_string("A 1-bit integer (boolean value).");
-        case ll_type_i8:
-            return heap_string("An 8-bit integer.");
-        case ll_type_i16:
-            return heap_string("A 16-bit integer.");
-        case ll_type_i32:
-            return heap_string("A 32-bit integer.");
-        case ll_type_flt:
-            return heap_string("A 16-bit floating point type.");
-        default:
-            printf("Unrecognized LLType case %d.\n", t->typeCase);
-            exit(1);
-            
-    }
-    
-}
+char *ll_type_description(LLType *t);

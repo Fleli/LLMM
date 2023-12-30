@@ -15,4 +15,4 @@ typedef struct {
 } LLFunction;
 
 /* Initialize a new LLFunction object. */
-LLFunction *llFunction_init(char* name);
+LLFunction *ll_function_init(char* name);

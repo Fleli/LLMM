@@ -30,3 +30,12 @@ void array_insert(Array *a, void *newElement, int index);
 
 /* Get the element at a certain index. */
 void* array_get(Array *a, int index);
+
+/* Get the number of elements in the array. */
+int array_count(Array *a);
+
+/* 
+Destroy the array and free the memory it uses.
+Since arrays don't take ownership of elements, each element should be destroyed externally first.
+*/
+void array_destroy(Array *a);
