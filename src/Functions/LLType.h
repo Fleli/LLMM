@@ -17,4 +17,9 @@ typedef struct {
     
 } LLType;
 
+/* 
+Initialize a new LLType instance.
+Assumes ownership of `associated` is given to this new instance. 
+Won't make a copy of it.
+ */
 LLType *ll_type_init(LLTypeCase typeCase, void *associated);

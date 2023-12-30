@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../meta.h"
-
 #include "LLType.h"
 #include "../DataStructures/Array.h"
 
