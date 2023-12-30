@@ -5,9 +5,9 @@
 
 #include "DataStructures/Array.h"
 
-#include "Functions/LLFunction.h"
-#include "Functions/LLType.h"
-#include "Functions/LLTypeCase.h"
+#include "IR/LLFunction.h"
+#include "IR/LLType.h"
+#include "IR/LLTypeCase.h"
 
 #include "Utils/Utils.h"
 

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "LLStmt.h"
-#include "LLStmtAlloca.h"
+#include "../IR/LLStmt.h"
+#include "../IR/LLStmtAlloca.h"
 
 void ll_stmt_destroy(LLStmt *stmt) {
     

@@ -1,12 +1,11 @@
 
 #include <stdlib.h>
 
-#include "../Shared/LLType.h"
-
 #include "../Utils/Utils.h"
 
-#include "LLStmt.h"
-#include "LLStmtAlloca.h"
+#include "../IR/LLType.h"
+#include "../IR/LLStmt.h"
+#include "../IR/LLStmtAlloca.h"
 
 LLStmt *ll_stmt_init_alloca(char *name, LLType *type) {
     

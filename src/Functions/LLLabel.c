@@ -3,9 +3,9 @@
 
 #include "../DataStructures/Array.h"
 
-#include "LLLabel.h"
+#include "../IR/LLLabel.h"
 
-#include "../Statements/LLStmt.h"
+#include "../IR/LLStmt.h"
 
 LLLabel *ll_label_init(char *name) {
     

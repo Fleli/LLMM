@@ -4,7 +4,7 @@
 
 #include "../DataStructures/Array.h"
 
-#include "LLType.h"
+#include "../IR/LLType.h"
 
 LLType *ll_type_init(LLTypeCase typeCase, void *associated) {
     

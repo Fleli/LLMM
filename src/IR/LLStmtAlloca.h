@@ -1,8 +1,7 @@
 
 #pragma once
 
-#include "../Shared/LLType.h"
-
+#include "LLType.h"
 #include "LLStmt.h"
 
 // alloca name : T

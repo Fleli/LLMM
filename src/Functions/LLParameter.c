@@ -1,9 +1,9 @@
 
 #include <stdlib.h>
 
-#include "../Shared/LLType.h"
+#include "../IR/LLType.h"
 
-#include "LLParameter.h"
+#include "../IR/LLParameter.h"
 
 LLParameter *ll_parameter_init(char *name, LLType *type) {
     
