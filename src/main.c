@@ -1,27 +1,19 @@
 
 #include "DataStructures/Array.h"
+#include "Functions/LLFunction.h"
+#include "Utils/Utils.h"
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
-int main()
-{
+int main() {
     
-    Array *a = array_init();
+    char *name = heap_string("function_name");
     
-    void *elem1 = malloc(sizeof(int));
-    *(int*)(elem1) = 5;
-    array_insert(a, elem1, 0);
+    LLFunction *func = llFunction_init(name);
     
-    void *elem2 = malloc(sizeof(int));
-    *(int*)(elem2) = 7;
-    array_insert(a, elem2, 0);
-    
-    int u = * (int*) array_get(a, 0);
-    printf("u = %d\n", u);
-    
-    int v = * (int*) array_get(a, 1);
-    printf("v = %d\n", v);
+    printf("%s\n", func->name);
     
     return 0;
     

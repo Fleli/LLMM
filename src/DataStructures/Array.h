@@ -1,4 +1,6 @@
 
+#pragma once
+
 /* 
 An array holding pointers to elements. The array does not "own" the elements, so it
 won't deallocate the memory used by elements when being destroyed.
