@@ -9,30 +9,15 @@
 
 int main() {
     
-    /*
-    char *funcName = heap_string("didMoveToView");
+    char *funcName = heap_string("test_function");
     LLFunction *func = ll_function_init(funcName);
     
-    char *paramName = heap_string("%%1");
-    LLType *type = ll_type_init(ll_type_i16, NULL);
-    LLParameter *param = ll_parameter_init(paramName, type);
+    char *desc = ll_function_description(func);
     
-    ll_function_add_parameter(func, param);
+    printf("%s\n", desc);
     
     ll_function_destroy(func);
-    */
-    
-    MutableString *mut_str = mutable_string_init("abc", bool_false);
-    
-    char *p = heap_string("def");
-    char *q = heap_string("ghi");
-    
-    mutable_string_concatenate(mut_str, p, bool_true);
-    mutable_string_concatenate(mut_str, q, bool_true);
-    
-    printf("%s\n", mut_str->buffer);
-    
-    mutable_string_destroy(mut_str);
+    free(desc);
     
     return 0;
     

@@ -20,3 +20,6 @@ LLParameter *ll_parameter_init(char *name, LLType *type);
 
 /* Destroy an LLParameter instance. */
 void ll_parameter_destroy(LLParameter *parameter);
+
+/* Get a string `type name` describing the parameter. */
+char *ll_parameter_description(LLParameter *parameter);

@@ -14,13 +14,13 @@ char *heap_string(char* literal) {
     
 }
 
-MutableString *mutable_string_init(char *string, int take_ownership) {
+MutableString *mutable_string_init(char *string, int take_ownership_of_other) {
     
     MutableString *mut_string = malloc( sizeof(MutableString) );
     
     int lengthIncludingTerminator = strlen(string) + 1;
     
-    if (take_ownership) {
+    if (take_ownership_of_other) {
         mut_string->buffer = string;
     } else {
         mut_string->buffer = malloc( lengthIncludingTerminator * sizeof(char) );
@@ -34,7 +34,7 @@ MutableString *mutable_string_init(char *string, int take_ownership) {
     
 }
 
-void mutable_string_concatenate(MutableString *base, char *other, int take_ownership) {
+void mutable_string_concatenate(MutableString *base, char *other, int take_ownership_of_other) {
     
     int otherLength = strlen(other);
     int new_length = base->length + otherLength;
@@ -54,7 +54,7 @@ void mutable_string_concatenate(MutableString *base, char *other, int take_owner
     base->length += otherLength;
     
     // If requested to take ownership of `other`, we simply destroy it since we have already copied its contents.
-    if (take_ownership) {
+    if (take_ownership_of_other) {
         free(other);
     }
     
@@ -62,10 +62,23 @@ void mutable_string_concatenate(MutableString *base, char *other, int take_owner
 
 void mutable_string_destroy(MutableString *mut_str) {
     
-    // Free the mutable string's character buffer.
-    free(mut_str->buffer);
+    // Destroy the whole mutable string, except the buffer.
+    char *buffer = mutable_string_destroy_extract_buffer(mut_str);
     
-    // Free the mutable string itself.
+    // Destroy the buffer as well.
+    free(buffer);
+    
+}
+
+char *mutable_string_destroy_extract_buffer(MutableString *mut_str) {
+    
+    // Retain the buffer.
+    char *buffer = mut_str->buffer;
+    
+    // Free the mutable string.
     free(mut_str);
+    
+    // Return the buffer.
+    return buffer;
     
 }
