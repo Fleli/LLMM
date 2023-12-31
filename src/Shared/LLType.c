@@ -48,15 +48,15 @@ char *ll_type_description(LLType *t) {
     
     switch (t->typeCase) {
         case ll_type_i1:
-            return heap_string("A 1-bit integer (boolean value).");
+            return heap_string("i1");
         case ll_type_i8:
-            return heap_string("An 8-bit integer.");
+            return heap_string("i8");
         case ll_type_i16:
-            return heap_string("A 16-bit integer.");
+            return heap_string("i16");
         case ll_type_i32:
-            return heap_string("A 32-bit integer.");
+            return heap_string("i32");
         case ll_type_flt:
-            return heap_string("A 16-bit floating point type.");
+            return heap_string("flt");
         default:
             printf("Unrecognized LLType case %d.\n", t->typeCase);
             exit(1);

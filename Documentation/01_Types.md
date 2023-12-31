@@ -9,9 +9,9 @@ LLMM provides a few of the most frequently used types built into the IR.
 
 The IR also allows some derived types. For example, a pointer to a type `T` can be declared as `T*` for an arbitrary type `T`.
 
-In addition, types can be bundled together. This example corresponds to a high-level `struct` whose first two fields are 16-bit integers, third field is a single bit (e.g. a bool) and third field is a pointer to a float. `T` must be a valid type name.
+In addition, types can be bundled together. This example corresponds to a high-level `struct` whose first two fields are 16-bit integers, third field is a single bit (e.g. a bool) and fourth field is a pointer to a float. `T` must be a valid type name.
 ```
-type T = { w16, w16, bit, float* }
+type T = { i16, i16, i1, flt* }
 ```
 Members are referred to by index (0 refers to the first element, and 3 refers to the last element in this example).
 

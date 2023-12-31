@@ -6,7 +6,7 @@
 #include "../IR/LLFunction.h"
 #include "../IR/LLParameter.h"
 
-LLFunction *ll_function_init(char* name) {
+LLFunction *ll_function_init(char *name) {
     
     LLFunction *func = malloc( sizeof(LLFunction) );
     
