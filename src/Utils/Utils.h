@@ -25,8 +25,8 @@ typedef struct {
 /* Initialize a mutable string from a plain `char *` string. Will take ownership of the given `char *` if requested to do so. */
 MutableString *mutable_string_init(char *string, int take_ownership);
 
-/* Append a `char *` to a mutable string. */
-void *mutable_string_concatenate(MutableString *base, char *other);
+/* Append a `char *` to a mutable string. Take ownership of the `other` string if requested to do so. */
+void mutable_string_concatenate(MutableString *base, char *other, int take_ownership);
 
 /* Destroy a mutable string and all data owned by it. */
 void mutable_string_destroy(MutableString *mut_str);

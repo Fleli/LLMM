@@ -24,6 +24,7 @@ MutableString *mutable_string_init(char *string, int take_ownership) {
         mut_string->buffer = string;
     } else {
         mut_string->buffer = malloc( lengthIncludingTerminator * sizeof(char) );
+        strcpy(mut_string->buffer, string);
     }
     
     mut_string->length = lengthIncludingTerminator;
@@ -33,7 +34,7 @@ MutableString *mutable_string_init(char *string, int take_ownership) {
     
 }
 
-void *mutable_string_concatenate(MutableString *base, char *other) {
+void mutable_string_concatenate(MutableString *base, char *other, int take_ownership) {
     
     int otherLength = strlen(other);
     int new_length = base->length + otherLength;
@@ -51,6 +52,11 @@ void *mutable_string_concatenate(MutableString *base, char *other) {
     
     // We then update the length of the mutable string
     base->length += otherLength;
+    
+    // If requested to take ownership of `other`, we simply destroy it since we have already copied its contents.
+    if (take_ownership) {
+        free(other);
+    }
     
 }
 
