@@ -39,3 +39,9 @@ void ll_function_destroy(LLFunction *func) {
     free(func);
     
 }
+
+char *ll_function_description(LLFunction *func) {
+    
+    
+    
+}

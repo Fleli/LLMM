@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "Utils.h"
+
 char *heap_string(char* literal) {
     
     // Allocate space for the string, including the null character.
@@ -12,28 +14,52 @@ char *heap_string(char* literal) {
     
 }
 
-char *string_concatenate(char *a, char *b) {
+MutableString *mutable_string_init(char *string, int take_ownership) {
     
-    int aLength = strlen(a);
-    int bLength = strlen(b);
+    MutableString *mut_string = malloc( sizeof(MutableString) );
     
-    // aLength and bLength indicate lengths, excluding the terminator 0.
-    // Thus, the length including it is aLength + bLength + 1.
-    char *result = malloc( (aLength + bLength + 1) * sizeof(char) );
+    int lengthIncludingTerminator = strlen(string) + 1;
     
-    // We copy the whole a-string
-    for (int i = 0 ; i < aLength ; i++) {
-        result[i] = a[i];
+    if (take_ownership) {
+        mut_string->buffer = string;
+    } else {
+        mut_string->buffer = malloc( lengthIncludingTerminator * sizeof(char) );
     }
     
-    // Then we copy the whole b-string
-    for (int i = 0 ; i < bLength ; i++) {
-        result[i + aLength] = b[i];
+    mut_string->length = lengthIncludingTerminator;
+    mut_string->capacity = lengthIncludingTerminator;
+    
+    return mut_string;
+    
+}
+
+void *mutable_string_concatenate(MutableString *base, char *other) {
+    
+    int otherLength = strlen(other);
+    int new_length = base->length + otherLength;
+    
+    if (new_length > base->capacity) {
+        base->capacity = new_length * 2;
+        base->buffer = realloc(base->buffer, base->capacity);
     }
     
-    // Finally, we terminate the string with a 0.
-    result[aLength + bLength] = 0;
+    // We calculate a pointer to the base's null character
+    char* address_of_null_of_base = base->buffer + base->length - 1;
     
-    return result;
+    // Then, we copy the other string into it.
+    strcpy(address_of_null_of_base, other);
+    
+    // We then update the length of the mutable string
+    base->length += otherLength;
+    
+}
+
+void mutable_string_destroy(MutableString *mut_str) {
+    
+    // Free the mutable string's character buffer.
+    free(mut_str->buffer);
+    
+    // Free the mutable string itself.
+    free(mut_str);
     
 }

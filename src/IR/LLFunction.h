@@ -28,3 +28,9 @@ void ll_function_add_label(LLFunction *func, LLLabel *label);
 
 /* Destroy an LLFunction. */
 void ll_function_destroy(LLFunction *func);
+
+/* 
+Return a string describing the function.
+This includes its name & parameters, and all labels (which contains all the statements of the body).
+ */
+char *ll_function_description(LLFunction *func);
