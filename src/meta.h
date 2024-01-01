@@ -1,7 +1,5 @@
 
 #pragma once
 
+/* Perform runtime checks to verify well-formedness, e.g. array indices within bounds, etc. */
 #define DEBUG
-
-#define bool_true 1
-#define bool_false 0

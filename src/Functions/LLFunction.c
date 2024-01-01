@@ -32,8 +32,8 @@ void ll_function_destroy(LLFunction *func) {
     free(func->name);
     
     // Free parameters and labels
-    array_destroy_with_ownership(func->parameters, (destructor) ll_parameter_destroy);
-    array_destroy_with_ownership(func->labels, (destructor) ll_label_destroy);
+    array_destroy_with_ownership(func->parameters, (Destructor) ll_parameter_destroy);
+    array_destroy_with_ownership(func->labels, (Destructor) ll_label_destroy);
     
     // Free the function itself
     free(func);

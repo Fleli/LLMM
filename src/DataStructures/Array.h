@@ -15,7 +15,7 @@ typedef struct {
 } Array;
 
 /* Destructors are `void` functions that take a pointer to the object they are destroying. */
-#define destructor void (*) (void*)
+#define Destructor void (*) (void*)
 
 /* Initialize an array and return a pointer to it. */
 Array* array_init(void);

@@ -28,7 +28,7 @@ void ll_label_destroy(LLLabel *label) {
     free(label->name);
     
     // Free the label's array of statements.
-    array_destroy_with_ownership(label->statements, (destructor) ll_stmt_destroy);
+    array_destroy_with_ownership(label->statements, (Destructor) ll_stmt_destroy);
     
     // Free the label itself.
     free(label);
