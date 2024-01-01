@@ -3,7 +3,9 @@
 #include <string.h>
 
 #include "../IR/LLStmt.h"
+
 #include "../IR/LLStmtAlloca.h"
+#include "../IR/LLStmtStore.h"
 
 void ll_stmt_destroy(LLStmt *stmt) {
     
@@ -13,6 +15,8 @@ void ll_stmt_destroy(LLStmt *stmt) {
     
     if (strcmp(mnemonic, "alloca") == 0) {
         ll_stmt_alloca_destroy(stmt->args);
+    } else if (strcmp(mnemonic, "store") == 0) {
+        ll_stmt_store_destroy(stmt->args);
     }
     
     // Free the mnemonic string.

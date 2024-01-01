@@ -18,6 +18,8 @@ LLStmt *ll_stmt_init_alloca(char *name, LLType *type) {
     alloca->name = name;
     alloca->type = type;
     
+    stmt->args = alloca;
+    
     return stmt;
     
 }
