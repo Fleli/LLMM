@@ -24,10 +24,6 @@ LLStmt *ll_stmt_init_alloca(char *name, LLType *type) {
     
 }
 
-/*
-Free the memory allocated by the LLStmt's satellite data (name and type), and the struct holding them.
-*/
-
 void ll_stmt_alloca_destroy(LLStmtAlloca *alloca) {
     
     // Free the memory holding the variable name.

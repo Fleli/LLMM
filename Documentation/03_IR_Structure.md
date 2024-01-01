@@ -1,6 +1,6 @@
 # Intermediate Representation Structure
 
-The top level of the structure contains all function declarations, type definitions, and metadata (once it is added to the IR).
+The top level of the structure contains all function declarations, type definitions, and metadata (once it is added to the IR). In-depth information about IR statements is found in `LLMM/ir_design`.
 
 ## Functions
 

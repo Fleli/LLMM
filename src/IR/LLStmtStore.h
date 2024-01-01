@@ -7,7 +7,7 @@
 
 // Usage: `store <type> <value> at <location> ;`
 
-/* The type, value and location in a store statement. */
+/* The type, value and location of a store statement. */
 typedef struct {
     
     /* The type of the value to store (so the LValue is a pointer to this type). */
@@ -27,4 +27,4 @@ typedef struct {
 LLStmt *ll_stmt_init_store(LLType *type, LLRValue *value, LLRValue *location);
 
 /* Destroy a `LLStmtStore` instance. */
-void ll_stmt_store_destroy(LLStmtStore *stmt);
+void ll_stmt_store_destroy(LLStmtStore *store);
