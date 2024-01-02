@@ -42,7 +42,7 @@ void ll_function_destroy(LLFunction *func) {
 
 char *ll_function_description(LLFunction *func) {
     
-    MutableString *description = mutable_string_init("[func] ", do_not_take_ownership);
+    MutableString *description = mutable_string_init("function ", do_not_take_ownership);
     mutable_string_concatenate(description, func->name, do_not_take_ownership);
     mutable_string_concatenate(description, "(", do_not_take_ownership);
     

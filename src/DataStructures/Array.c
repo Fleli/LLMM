@@ -99,7 +99,7 @@ void array_destroy_with_ownership(Array *a, void (*destructor_function)(void *el
     
 }
 
-char *array_list_description(Array *a, char *(*elementDescription)(void *element)) {
+char *array_description(Array *a, char *(*elementDescription)(void *element)) {
     
     MutableString *mstr = mutable_string_init("", do_not_take_ownership);
     

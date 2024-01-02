@@ -51,7 +51,7 @@ void array_destroy_with_ownership(Array *a, void (*destructor_function)(void *el
 
 /*
 Build a description of the array by applying a given description function on each element.
-Will use commas to separate each element.
-Will not enclose in `[]`.
+Will use commas to separate elements from each other.
+Will not enclose in `[ ]`.
 */
-char *array_list_description(Array *a, char *(*elementDescription)(void *element));
+char *array_description(Array *a, char *(*elementDescription)(void *element));
