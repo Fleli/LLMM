@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "../meta.h"
 #include "Utils.h"
 
 char *heap_string(char* literal) {
@@ -10,7 +11,13 @@ char *heap_string(char* literal) {
     // Allocate space for the string, including the null character.
     char *str = malloc( (strlen(literal) + 1) * sizeof(char) );
     
-    return strcpy(str, literal);
+    char *newstr = strcpy(str, literal);
+    
+    #ifdef PRINTOBJECTS
+    printf("String (heap_string) : {%s} @ %p\n", str, str);
+    #endif
+    
+    return newstr;
     
 }
 

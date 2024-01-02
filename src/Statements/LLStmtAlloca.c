@@ -1,6 +1,8 @@
 
 #include <stdlib.h>
+#include <stdio.h>
 
+#include "../meta.h"
 #include "../Utils/Utils.h"
 
 #include "../IR/LLType.h"
@@ -10,6 +12,10 @@
 LLStmt *ll_stmt_init_alloca(char *name, LLType *type) {
     
     LLStmt *stmt = malloc( sizeof(LLStmt) );
+    
+    #ifdef PRINTOBJECTS
+    printf("LLStmt (alloca) @ %p\n", stmt);
+    #endif
     
     stmt->mnemonic = heap_string("alloca");
     
@@ -40,7 +46,7 @@ void ll_stmt_alloca_destroy(LLStmtAlloca *alloca) {
 char *ll_stmt_alloca_description(LLStmtAlloca *alloca) {
     
     // Start with the name of the variable.
-    MutableString *mstr = mutable_string_init(alloca->name, take_ownership);
+    MutableString *mstr = mutable_string_init(alloca->name, do_not_take_ownership);
     
     // Append ` : `
     mutable_string_concatenate(mstr, " : ", do_not_take_ownership);

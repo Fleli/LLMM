@@ -1,6 +1,8 @@
 
 #include <stdlib.h>
+#include <stdio.h>
 
+#include "../meta.h"
 #include "../Utils/Utils.h"
 
 #include "../IR/LLStmt.h"
@@ -11,6 +13,10 @@
 LLStmt *ll_stmt_init_load(char *name, LLType *type, LLLValue *location) {
     
     LLStmt *stmt = malloc( sizeof(LLStmt) );
+    
+    #ifdef PRINTOBJECTS
+    printf("LLStmt (load) @ %p\n", stmt);
+    #endif
     
     stmt->mnemonic = heap_string("load");
     

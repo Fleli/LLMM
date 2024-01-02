@@ -23,6 +23,10 @@ Array *array_init_with_initial_capacity(int initialCapacity) {
     
     Array *a = malloc( sizeof(Array) );
     
+    #ifdef PRINTOBJECTS
+    printf("Array @ %p\n", a);
+    #endif
+    
     a->count = 0;
     a->length = initialCapacity;
     a->data = malloc( (a->length) * sizeof(void*) );

@@ -5,6 +5,10 @@
 #include "IR/LLParameter.h"
 #include "IR/LLType.h"
 #include "IR/LLFunctionType.h"
+#include "IR/LLStmt.h"
+#include "IR/LLStmtAlloca.h"
+#include "IR/LLStmtLoad.h"
+#include "IR/LLStmtStore.h"
 
 #include "Utils/Utils.h"
 
@@ -35,9 +39,30 @@ void test1() {
     
 }
 
+void test2() {
+    
+    LLFunction *func = ll_function_init(heap_string("test2"));
+    
+    LLLabel *label = ll_label_init(heap_string("@some_label"));
+    
+    ll_label_add_statement(label, ll_stmt_init_alloca(heap_string("m3"), ll_type_init(ll_type_i16, NULL)));
+    // ll_label_add_statement(label, ll_stmt_init_load(heap_string("%%2"), ll_type_init(ll_type_i16, NULL), ll_lvalue_init(ll_lvalue_variable, heap_string("%%1"))));
+    
+    ll_function_add_label(func, label);
+    
+    char *desc = ll_label_description(label);
+    
+    printf("%s\n", desc);
+    
+    free(desc);
+    ll_function_destroy(func);
+    
+}
+
 int main() {
     
     test1();
+    test2();
     
     return 0;
     

@@ -49,9 +49,9 @@ char *ll_stmt_description(LLStmt *stmt) {
     if (strcmp(mnemonic, "alloca") == 0) {
         mutable_string_concatenate(mstr, ll_stmt_alloca_description(stmt->args), take_ownership);
     } else if (strcmp(mnemonic, "load") == 0) {
-        
+        mutable_string_concatenate(mstr, ll_stmt_load_description(stmt->args), take_ownership);
     } else if (strcmp(mnemonic, "store") == 0) {
-        
+        mutable_string_concatenate(mstr, ll_stmt_store_description(stmt->args), take_ownership);
     } else {
         printf("Statement %s not implemented.", mnemonic);
         exit(1);

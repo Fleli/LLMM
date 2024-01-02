@@ -1,6 +1,8 @@
 
 #include <stdlib.h>
+#include <stdio.h>
 
+#include "../meta.h"
 #include "../DataStructures/Array.h"
 
 #include "../IR/LLLabel.h"
@@ -11,6 +13,10 @@
 LLLabel *ll_label_init(char *name) {
     
     LLLabel *label = malloc( sizeof(LLLabel) );
+    
+    #ifdef PRINTOBJECTS
+    printf("Label @ %p\n", label);
+    #endif
     
     label->name = name;
     label->statements = array_init();
