@@ -57,6 +57,6 @@ char *ll_label_description(LLLabel *label) {
     
     mutable_string_concatenate(mstr, "\n", do_not_take_ownership);
     
-    return mstr;
+    return mutable_string_destroy_extract_buffer(mstr);
     
 }

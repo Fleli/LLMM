@@ -47,7 +47,7 @@ char *ll_stmt_description(LLStmt *stmt) {
     char *mnemonic = stmt->mnemonic;
     
     if (strcmp(mnemonic, "alloca") == 0) {
-        
+        mutable_string_concatenate(mstr, ll_stmt_alloca_description(stmt->args), take_ownership);
     } else if (strcmp(mnemonic, "load") == 0) {
         
     } else if (strcmp(mnemonic, "store") == 0) {

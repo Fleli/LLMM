@@ -32,3 +32,6 @@ LLLValue *ll_lvalue_init(LLLValueCase valueCase, void *associated_value);
 
 /* Destroy an `LLLValue` instance and free its memory. */
 void ll_lvalue_destroy(LLLValue *lvalue);
+
+/* Describe an LValue. */
+char *ll_lvalue_description(LLLValue *lvalue);

@@ -8,12 +8,12 @@
 
 /* 
 An `alloca` statement contains a name and type of a stack-allocated variable.
-Usage: `alloca <type> <name>;`
+Usage: `alloca <name> : <type> ;`
 */
 typedef struct {
     
-    LLType *type;
     char *name;
+    LLType *type;
     
 } LLStmtAlloca;
 
@@ -22,3 +22,6 @@ LLStmt *ll_stmt_init_alloca(char *name, LLType *type);
 
 /* Destroy the satellite data (`LLStmtAlloca`) of an alloca statement. */
 void ll_stmt_alloca_destroy(LLStmtAlloca *alloca);
+
+/* Build a description out of an `alloca` statement. */
+char *ll_stmt_alloca_description(LLStmtAlloca *alloca);

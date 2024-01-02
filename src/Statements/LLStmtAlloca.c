@@ -39,4 +39,17 @@ void ll_stmt_alloca_destroy(LLStmtAlloca *alloca) {
 
 char *ll_stmt_alloca_description(LLStmtAlloca *alloca) {
     
+    // Start with the name of the variable.
+    MutableString *mstr = mutable_string_init(alloca->name, take_ownership);
+    
+    // Append ` : `
+    mutable_string_concatenate(mstr, " : ", do_not_take_ownership);
+    
+    // Then find and append the type description.
+    char *typeDescription = ll_type_description(alloca->type);
+    mutable_string_concatenate(mstr, typeDescription, take_ownership);
+    
+    // Destroy the `MutableString` object and extract the character buffer.
+    return mutable_string_destroy_extract_buffer(mstr);
+    
 }

@@ -7,7 +7,7 @@
 #include "../IR/LLRValue.h"
 #include "../IR/LLStmtStore.h"
 
-LLStmt *ll_stmt_init_store(LLType *type, LLRValue *value, LLLValue *location) {
+LLStmt *ll_stmt_init_store(LLRValue *value, LLType *type, LLLValue *location) {
     
     LLStmt *stmt = malloc( sizeof(LLStmt) );
     

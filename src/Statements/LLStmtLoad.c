@@ -8,7 +8,7 @@
 #include "../IR/LLLValue.h"
 #include "../IR/LLStmtLoad.h"
 
-LLStmt *ll_stmt_init_load(LLType *type, char *name, LLLValue *location) {
+LLStmt *ll_stmt_init_load(char *name, LLType *type, LLLValue *location) {
     
     LLStmt *stmt = malloc( sizeof(LLStmt) );
     
@@ -39,5 +39,29 @@ void ll_stmt_load_destroy(LLStmtLoad *load) {
     
     // Free the instance itself.
     free(load);
+    
+}
+
+char *ll_stmt_load_description(LLStmtLoad *load) {
+    
+    // <name>
+    MutableString *mstr = mutable_string_init(load->name, do_not_take_ownership);
+    
+    // " : "
+    mutable_string_concatenate(mstr, " : ", do_not_take_ownership);
+    
+    // <type>
+    char *typeDesc = ll_type_description(load->type);
+    mutable_string_concatenate(mstr, typeDesc, take_ownership);
+    
+    // " from "
+    mutable_string_concatenate(mstr, " from ", do_not_take_ownership);
+    
+    // <location>
+    char *locationDesc = ll_lvalue_description(load->location);
+    mutable_string_concatenate(mstr, locationDesc, take_ownership);
+    
+    // Extract & destroy
+    return mutable_string_destroy_extract_buffer(mstr);
     
 }
