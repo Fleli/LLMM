@@ -28,3 +28,6 @@ LLStmt *ll_stmt_init_store(LLRValue *value, LLType *type, LLLValue *location);
 
 /* Destroy a `LLStmtStore` instance. */
 void ll_stmt_store_destroy(LLStmtStore *store);
+
+/* Build a description of an `LLStmtStore` instance. */
+char *ll_stmt_store_description(LLStmtStore *store);

@@ -26,3 +26,6 @@ LLRValue *ll_rvalue_init_variable(char *variable);
 
 /* Destroy an `LLRValue` instance. */
 void ll_rvalue_destroy(LLRValue *rvalue);
+
+/* Build a description of an RValue. */
+char *ll_rvalue_description(LLRValue *rvalue);

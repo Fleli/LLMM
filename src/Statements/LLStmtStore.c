@@ -38,3 +38,28 @@ void ll_stmt_store_destroy(LLStmtStore *store) {
     free(store);
     
 }
+
+char *ll_stmt_store_description(LLStmtStore *store) {
+    
+    // <value>
+    char *valStr = ll_rvalue_description(store->value);
+    MutableString *mstr = mutable_string_init(valStr, take_ownership);
+    
+    // " : "
+    mutable_string_concatenate(mstr, " : ", do_not_take_ownership);
+    
+    // <type>
+    char *typeDesc = ll_type_description(store->type);
+    mutable_string_concatenate(mstr, typeDesc, take_ownership);
+    
+    // " at "
+    mutable_string_concatenate(mstr, " at ", do_not_take_ownership);
+    
+    // <location>
+    char *locationDesc = ll_lvalue_description(store->location);
+    mutable_string_concatenate(mstr, locationDesc, take_ownership);
+    
+    // Extract & destroy
+    return mutable_string_destroy_extract_buffer(mstr);
+    
+}
