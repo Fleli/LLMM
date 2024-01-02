@@ -6,7 +6,7 @@
 /* 
 An `LLRValue` is organized similarly to Swift enums with associated values.
 `LLRValue`s represent RValues.
-They can be literals, global variables, or local variables.
+They can be literals or variables.
 */
 typedef struct {
     

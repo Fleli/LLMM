@@ -3,6 +3,7 @@
 
 #include "LLStmt.h"
 #include "LLType.h"
+#include "LLLValue.h"
 #include "LLRValue.h"
 
 // Usage: `store <type> <value> at <location> ;`
@@ -16,15 +17,13 @@ typedef struct {
     /* The value to store (RValue). */
     LLRValue *value;
     
-    // TODO: For now, use RValues for locations (cannot think of more than literals and variables).
-    // However, it is an LValue.
     /* The location (LValue) at which to store the value. */
-    LLRValue *location;
+    LLLValue *location;
     
 } LLStmtStore;
 
 /* Initialize a `store` statement from a type (to store), a value (to store) and a location (at which to store). */
-LLStmt *ll_stmt_init_store(LLType *type, LLRValue *value, LLRValue *location);
+LLStmt *ll_stmt_init_store(LLType *type, LLRValue *value, LLLValue *location);
 
 /* Destroy a `LLStmtStore` instance. */
 void ll_stmt_store_destroy(LLStmtStore *store);

@@ -5,10 +5,10 @@
 
 #include "../IR/LLStmt.h"
 #include "../IR/LLType.h"
-#include "../IR/LLRValue.h"
+#include "../IR/LLLValue.h"
 #include "../IR/LLStmtLoad.h"
 
-LLStmt *ll_stmt_init_load(LLType *type, char *name, LLRValue *location) {
+LLStmt *ll_stmt_init_load(LLType *type, char *name, LLLValue *location) {
     
     LLStmt *stmt = malloc( sizeof(LLStmt) );
     
@@ -35,7 +35,7 @@ void ll_stmt_load_destroy(LLStmtLoad *load) {
     free(load->name);
     
     // Destroy the location.
-    ll_rvalue_destroy(load->location);
+    ll_lvalue_destroy(load->location);
     
     // Free the instance itself.
     free(load);

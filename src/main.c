@@ -35,7 +35,7 @@ void test1() {
     
 }
 
-int main(int argc, char const *argv[]) {
+int main() {
     
     test1();
     

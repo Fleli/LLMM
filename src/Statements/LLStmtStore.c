@@ -3,10 +3,11 @@
 
 #include "../IR/LLStmt.h"
 #include "../IR/LLType.h"
+#include "../IR/LLLValue.h"
 #include "../IR/LLRValue.h"
 #include "../IR/LLStmtStore.h"
 
-LLStmt *ll_stmt_init_store(LLType *type, LLRValue *value, LLRValue *location) {
+LLStmt *ll_stmt_init_store(LLType *type, LLRValue *value, LLLValue *location) {
     
     LLStmt *stmt = malloc( sizeof(LLStmt) );
     
@@ -29,10 +30,9 @@ void ll_stmt_store_destroy(LLStmtStore *store) {
     // Destroy the type.
     ll_type_destroy(store->type);
     
-    // TODO: Update this if an LValue type is introduced.
-    // Destroy the value and location (both are RValues).
+    // Destroy the value (RValue) and location (LValue).
     ll_rvalue_destroy(store->value);
-    ll_rvalue_destroy(store->location);
+    ll_lvalue_destroy(store->location);
     
     // Free the `store` instance.
     free(store);
