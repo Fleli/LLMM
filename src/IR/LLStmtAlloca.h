@@ -4,9 +4,12 @@
 #include "LLType.h"
 #include "LLStmt.h"
 
-// Usage: `alloca <type> <name>;`
 
-/* The name and type of a stack-allocated variable. */
+
+/* 
+An `alloca` statement contains a name and type of a stack-allocated variable.
+Usage: `alloca <type> <name>;`
+*/
 typedef struct {
     
     LLType *type;

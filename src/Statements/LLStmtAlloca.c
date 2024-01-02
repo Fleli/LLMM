@@ -36,3 +36,7 @@ void ll_stmt_alloca_destroy(LLStmtAlloca *alloca) {
     free(alloca);
     
 }
+
+char *ll_stmt_alloca_description(LLStmtAlloca *alloca) {
+    
+}

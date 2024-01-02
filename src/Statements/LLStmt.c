@@ -1,5 +1,6 @@
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "../IR/LLStmt.h"
@@ -21,6 +22,9 @@ void ll_stmt_destroy(LLStmt *stmt) {
         ll_stmt_load_destroy(associated_value);
     } else if (strcmp(mnemonic, "store") == 0) {
         ll_stmt_store_destroy(associated_value);
+    } else {
+        printf("Statement %s not implemented.", mnemonic);
+        exit(1);
     }
     
     // Free the mnemonic string.
@@ -28,5 +32,31 @@ void ll_stmt_destroy(LLStmt *stmt) {
     
     // Free the statement itself.
     free(stmt);
+    
+}
+
+char *ll_stmt_description(LLStmt *stmt) {
+    
+    // Start with the mnemonic
+    MutableString *mstr = mutable_string_init(stmt->mnemonic, do_not_take_ownership);
+    
+    // Add a space.
+    mutable_string_concatenate(mstr, " ", do_not_take_ownership);
+    
+    // Then get the "specialized" description.
+    char *mnemonic = stmt->mnemonic;
+    
+    if (strcmp(mnemonic, "alloca") == 0) {
+        
+    } else if (strcmp(mnemonic, "load") == 0) {
+        
+    } else if (strcmp(mnemonic, "store") == 0) {
+        
+    } else {
+        printf("Statement %s not implemented.", mnemonic);
+        exit(1);
+    }
+    
+    return mutable_string_destroy_extract_buffer(mstr);
     
 }

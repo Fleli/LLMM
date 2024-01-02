@@ -10,7 +10,7 @@ They can be literals or variables.
 */
 typedef struct {
     
-    /* The rvalue case. */
+    /* The RValue case. */
     LLRValueCase rvalueCase;
     
     /* The RValue instance's associated value. Its type varies with the case. */

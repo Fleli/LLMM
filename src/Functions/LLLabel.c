@@ -4,8 +4,9 @@
 #include "../DataStructures/Array.h"
 
 #include "../IR/LLLabel.h"
-
 #include "../IR/LLStmt.h"
+
+#include "../Utils/Utils.h"
 
 LLLabel *ll_label_init(char *name) {
     
@@ -32,5 +33,30 @@ void ll_label_destroy(LLLabel *label) {
     
     // Free the label itself.
     free(label);
+    
+}
+
+char *ll_label_description(LLLabel *label) {
+    
+    MutableString *mstr = mutable_string_init("\t", do_not_take_ownership);
+    
+    mutable_string_concatenate(mstr, label->name, do_not_take_ownership);
+    mutable_string_concatenate(mstr, ":", do_not_take_ownership);
+    
+    int count = array_count(label->statements);
+    
+    for (int i = 0; i < count; i++) {
+        
+        LLStmt *elem = array_get(label->statements, i);
+        char *elemDescription = ll_stmt_description(elem);
+        
+        mutable_string_concatenate(mstr, "\n\t\t", do_not_take_ownership);
+        mutable_string_concatenate(mstr, elemDescription, take_ownership);
+        
+    }
+    
+    mutable_string_concatenate(mstr, "\n", do_not_take_ownership);
+    
+    return mstr;
     
 }

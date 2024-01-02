@@ -5,9 +5,10 @@
 #include "LLStmt.h"
 #include "LLLValue.h"
 
-// Usage: `load <type> <name> from <location> ;`
-
-/* The name and type of a stack-allocated variable. */
+/* 
+The name and type of a stack-allocated variable. 
+Usage: `load <type> <name> from <location> ;`
+*/
 typedef struct {
     
     LLType *type;

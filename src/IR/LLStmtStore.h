@@ -6,9 +6,10 @@
 #include "LLLValue.h"
 #include "LLRValue.h"
 
-// Usage: `store <type> <value> at <location> ;`
-
-/* The type, value and location of a store statement. */
+/* 
+The type, value and location of a store statement. 
+Usage: `store <type> <value> at <location> ;`
+*/
 typedef struct {
     
     /* The type of the value to store (so the LValue is a pointer to this type). */

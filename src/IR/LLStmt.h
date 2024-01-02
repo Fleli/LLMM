@@ -18,3 +18,6 @@ typedef struct {
 
 /* Destroy a `LLStmt` instance and free its memory. */
 void ll_stmt_destroy(LLStmt *stmt);
+
+/* Build a description of the statement. */
+char *ll_stmt_description(LLStmt *stmt);
