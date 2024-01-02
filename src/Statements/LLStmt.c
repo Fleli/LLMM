@@ -5,6 +5,7 @@
 #include "../IR/LLStmt.h"
 
 #include "../IR/LLStmtAlloca.h"
+#include "../IR/LLStmtLoad.h"
 #include "../IR/LLStmtStore.h"
 
 void ll_stmt_destroy(LLStmt *stmt) {
@@ -16,6 +17,8 @@ void ll_stmt_destroy(LLStmt *stmt) {
     
     if (strcmp(mnemonic, "alloca") == 0) {
         ll_stmt_alloca_destroy(associated_value);
+    } else if (strcmp(mnemonic, "load") == 0) {
+        ll_stmt_load_destroy(associated_value);
     } else if (strcmp(mnemonic, "store") == 0) {
         ll_stmt_store_destroy(associated_value);
     }

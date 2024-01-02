@@ -11,9 +11,10 @@
 #include "LLTypeCase.h"
 
 /* 
-An `LLType` is similar to a Swift enum. Its typeCase represents either a basic type, a pointer, or a struct.
-The latter two also have associated values:
+An `LLType` is similar to a Swift enum. Its typeCase represents either a basic type, a pointer, a function, or a struct.
+The latter three also have associated values:
 - pointers have an underlying `LLType`
+- functions have an underlying `LLFunctionType`.
 - structs have arrays of underlying `LLType`s.
 */
 typedef struct {
@@ -25,8 +26,7 @@ typedef struct {
 
 /* 
 Initialize a new LLType instance.
-Assumes ownership of `associated` is given to this new instance. 
-Won't make a copy of it.
+Takes ownership of the `associated` value passed as argument.
  */
 LLType *ll_type_init(LLTypeCase typeCase, void *associated);
 

@@ -22,5 +22,8 @@ typedef int LLTypeCase;
 /* The `ptr` (pointer) `LLType` case. Expects an underlying type as associated value as well. */
 #define ll_type_ptr 20
 
+/* A function type `A -> B` taking an argument of type `A` and producing a result of type `B`. */
+#define ll_type_function 30
+
 /* The `struct` (struct) `LLType` case. Expects an array of underlying types as associated value as well. */
-#define ll_type_struct 21
+#define ll_type_struct 40
