@@ -33,7 +33,7 @@ void ll_type_destroy(LLType *type) {
     // If the type case is a struct, we have to destroy an entire array of underlying types.
     if (type->typeCase == ll_type_struct) {
         Array *underlying_types = type->associated_value;
-        array_destroy_with_ownership(underlying_types, ll_type_destroy);
+        array_destroy_with_ownership(underlying_types, (Destructor) ll_type_destroy);
     }
     
     // Then, we deallocate this LLType instance.
@@ -54,23 +54,21 @@ char *ll_type_description(LLType *t) {
             return heap_string("i32");
         case ll_type_flt:
             return heap_string("flt");
-        case ll_type_ptr:
-        
-            // Make a mutable description from the underlying type's description.
-            char *u_description = ll_type_description( (LLType *) t->associated_value );
-            MutableString *mstring = mutable_string_init(u_description, take_ownership);
-            
-            // Append '*' to it to show that this is a pointer to that type, and return.
-            mutable_string_concatenate(mstring, "*", do_not_take_ownership);
-            return mutable_string_destroy_extract_buffer(mstring);
-            
+        case ll_type_ptr: 
+            {
+                // Make a mutable description from the underlying type's description.
+                char *udesc = NULL;
+                udesc = ll_type_description(t->associated_value);
+                MutableString *mstring = mutable_string_init(udesc, take_ownership);
+                
+                // Append '*' to it to show that this is a pointer to that type, and return.
+                mutable_string_concatenate(mstring, "*", do_not_take_ownership);
+                return mutable_string_destroy_extract_buffer(mstring);
+                
+            }
         case ll_type_function:
         
             return ll_function_type_description( (LLFunctionType *) t->associated_value );
-            
-        case ll_type_struct:
-            
-            
             
         default:
             printf("Unrecognized LLType case %d.\n", t->typeCase);

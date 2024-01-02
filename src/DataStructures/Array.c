@@ -4,6 +4,8 @@
 
 #include "../meta.h"
 
+#include "../Utils/Utils.h"
+
 #include "Array.h"
 
 Array *array_init(void) {
@@ -94,5 +96,28 @@ void array_destroy_with_ownership(Array *a, void (*destructor_function)(void *el
     }
     
     array_destroy(a);
+    
+}
+
+char *array_list_description(Array *a, char *(*elementDescription)(void *element)) {
+    
+    MutableString *mstr = mutable_string_init("", do_not_take_ownership);
+    
+    int count = array_count(a);
+    
+    for (int i = 0; i < count - 1; i++) {
+        void *element = array_get(a, i);
+        char *elemDesc = elementDescription(element);
+        mutable_string_concatenate(mstr, elemDesc, take_ownership);
+        mutable_string_concatenate(mstr, ", ", do_not_take_ownership);
+    }
+    
+    if (count > 0) {
+        void *element = array_get(a, count - 1);
+        char *elemDesc = elementDescription(element);
+        mutable_string_concatenate(mstr, elemDesc, take_ownership);
+    }
+    
+    return mutable_string_destroy_extract_buffer(mstr);
     
 }

@@ -48,3 +48,10 @@ Destroy the array and free the memory it uses.
 Assume that the array has ownership of its elements, and pass a function to destroy each element.
 */
 void array_destroy_with_ownership(Array *a, void (*destructor_function)(void *element));
+
+/*
+Build a description of the array by applying a given description function on each element.
+Will use commas to separate each element.
+Will not enclose in `[]`.
+*/
+char *array_list_description(Array *a, char *(*elementDescription)(void *element));
